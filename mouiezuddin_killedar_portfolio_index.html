@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mouiezuddin Killedar — Full‑Stack Developer</title>
+  <meta name="description" content="Portfolio of Mouiezuddin Killedar — Full Stack Web Developer. HTML, CSS, JS projects with animations." />
+  <style>
+    :root{
+      --bg1:#0f172a;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.06);
+      --muted: rgba(255,255,255,0.7);
+      --card: rgba(255,255,255,0.03);
+      --glass2: rgba(255,255,255,0.03);
+      font-family: Inter, system-ui, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg1) 0%, #071127 100%);color:#e6eef8}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:40px auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 6px 30px rgba(124,58,237,0.18)}
+    nav{display:flex;gap:12px}
+    nav a{padding:8px 12px;border-radius:10px;font-weight:600;opacity:.85}
+    nav a:hover{background:var(--glass);opacity:1}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:30px}
+    .intro h1{font-size:clamp(28px,4vw,44px);margin:0 0 6px}
+    .intro .role{font-weight:600;color:var(--accent);display:inline-block;margin-bottom:12px}
+    .intro p{color:var(--muted);line-height:1.6}
+    .typing{display:inline-block;border-right:2px solid rgba(255,255,255,0.6);padding-right:6px;white-space:nowrap;overflow:hidden}
+    .card{background:linear-gradient(180deg,var(--card),transparent);border-radius:16px;padding:18px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .contact-list{display:flex;flex-direction:column;gap:8px}
+    .contact-list a{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:var(--glass2);font-weight:600}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .skill{padding:8px 10px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));font-weight:600}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s;cursor:pointer}
+    .project:hover{transform:translateY(-10px) rotate(-1deg);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+    .project h4{margin:0 0 6px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+    .bg-blobs{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.6;mix-blend-mode:screen}
+    .b1{width:420px;height:420px;left:-120px;top:-80px;background:linear-gradient(135deg,#7c3aed,#06b6d4);animation:float1 10s ease-in-out infinite}
+    .b2{width:320px;height:320px;right:-80px;bottom:-140px;background:linear-gradient(135deg,#06b6d4,#7c3aed);animation:float2 12s ease-in-out infinite}
+    @keyframes float1{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(30px) rotate(15deg)}100%{transform:translateY(0) rotate(0)}}
+    @keyframes float2{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-30px) rotate(-12deg)}100%{transform:translateY(0) rotate(0)}}
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal-card{width:min(880px,92%);background:linear-gradient(180deg, #071127, #071530);padding:20px;border-radius:14px}
+    .modal-card header{display:flex;align-items:center;justify-content:space-between}
+    footer{margin:40px 0 80px;color:var(--muted);text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.projects{grid-template-columns:repeat(2,1fr)}.wrap{margin:18px}}
+    @media(max-width:560px){.projects{grid-template-columns:1fr}}
+    .reveal{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+    .reveal.show{opacity:1;transform:none}
+    .row{display:flex;gap:12px;align-items:center}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#06b6d4);font-weight:700;color:white}
+  </style>
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+  </div>
+  <div class="wrap">
+    <header class="reveal">
+      <div class="logo">
+        <div class="mark">MK</div>
+        <div>
+          <div style="font-weight:800">Mouiezuddin Killedar</div>
+          <div style="font-size:12px;color:var(--muted)">Full‑Stack Web Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#" onclick="downloadResume(event)">Resume</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="intro card reveal" style="z-index:2">
+          <div class="role">I'm a <span style="color:var(--muted)">problem solver</span> & web engineer.</div>
+          <h1>Hi — I build reliable, maintainable web apps.<br><span class="typing" id="typing"></span></h1>
+          <p>I'm a beginner-to-intermediate full‑stack developer focusing on JavaScript, Node.js, Express, React, and responsive CSS.</p>
+          <div style="margin-top:14px" class="row">
+            <a class="btn" href="#projects">See projects</a>
+            <a class="btn" href="mailto:killedarmouiezuddin@gmail.com">Contact</a>
+          </div>
+          <div style="margin-top:18px" class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Express</div>
+            <div class="skill">React</div>
+            <div class="skill">MongoDB</div>
+            <div class="skill">Git</div>
+          </div>
+        </div>
+        <aside class="card reveal">
+          <h3 style="margin:0 0 8px">Contact</h3>
+          <div class="contact-list">
+            <a href="mailto:killedarmouiezuddin@gmail.com">✉ killedarmouiezuddin@gmail.com</a>
+            <a href="tel:+918867555660">☎ +91 88675 55660</a>
+            <a href="https://wa.me/918867555660" target="_blank">💬 WhatsApp Chat</a>
+            <a href="https://github.com/Mouiezuddin" target="_blank">GitHub • github.com/Mouiezuddin</a>
+            <a href="https://www.linkedin.com/in/mouiezuddin-killedar" target="_blank">LinkedIn • /in/mouiezuddin-killedar</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects" style="margin-top:28px">
+        <h2 class="reveal">Selected Projects</h2>
+        <div class="projects">
+          <article class="project reveal" tabindex="0" data-title="Whack-a-Mole" data-desc="HTML/CSS/JS game with scoreboard, sounds and popup modals." data-tech="HTML, CSS, JS">
+            <h4>Whack‑a‑Mole</h4>
+            <p>Interactive browser game with scoreboard and sound effects.</p>
+          </article>
+
+          <article class="project reveal" tabindex="0" data-title="Animated Portfolio" data-desc="Animated portfolio site built with HTML, CSS & JS." data-tech="HTML, CSS, JS">
+            <h4>Animated Portfolio</h4>
+            <p>Responsive portfolio showcasing projects and contact details.</p>
+          </article>
+
+          <article class="project reveal" tabindex="0" data-title="Spotify Clone" data-desc="Music player inspired by Spotify built using HTML, CSS & JS." data-tech="HTML, CSS, JS">
+            <h4>Spotify Clone</h4>
+            <p>Music streaming interface with playlists and basic playback controls.</p>
+          </article>
+        </div>
+      </section>
+
+      <div id="modal" class="modal" aria-hidden="true">
+        <div class="modal-card">
+          <header>
+            <div>
+              <h3 id="modal-title">Project Title</h3>
+              <div id="modal-tech" style="color:var(--muted);font-size:13px;margin-top:6px">Tech stack</div>
+            </div>
+            <div><button onclick="closeModal()" style="background:none;border:0;color:var(--muted);font-weight:700">Close ✖</button></div>
+          </header>
+          <div id="modal-desc" style="margin-top:12px;color:var(--muted)">Project description</div>
+          <div style="margin-top:18px;text-align:right">
+            <a id="modal-link" class="btn" href="#" target="_blank">View repo / demo</a>
+          </div>
+        </div>
+      </div>
+
+      <section id="about" style="margin-top:30px" class="reveal">
+        <h2>About me</h2>
+        <p style="color:var(--muted);max-width:760px">I'm Mouiezuddin — I enjoy turning ideas into well-tested web applications. I focus on writing clean, maintainable code and shipping iteratively.</p>
+      </section>
+
+      <section id="contact" style="margin-top:26px" class="reveal card">
+        <h3 style="margin-top:0">Get in touch</h3>
+        <p style="color:var(--muted)">Send a short message and I'll reply: <a href="mailto:killedarmouiezuddin@gmail.com">killedarmouiezuddin@gmail.com</a> or <a href="https://wa.me/918867555660">WhatsApp me</a>.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Mouiezuddin Killedar — Built with HTML · CSS · JS</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function typing(){
+      const el=document.getElementById('typing');
+      const words=['Full‑Stack Developer','JavaScript • Node • React','Performance & Accessibility'];
+      let w=0,i=0,forward=true;
+      function step(){
+        const word=words[w];
+        if(forward){el.textContent=word.slice(0,++i);if(i===word.length){forward=false;setTimeout(step,900);return}}
+        else{el.textContent=word.slice(0,--i);if(i===0){forward=true;w=(w+1)%words.length}}
+        setTimeout(step,forward?80:30);
+      }
+      step();
+    })();
+    const reveals=document.querySelectorAll('.reveal');
+    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show');});},{threshold:0.12});
+    reveals.forEach(r=>io.observe(r));
+    document.querySelectorAll('.project').forEach(p=>p.addEventListener('click',()=>openProject(p)));
+    function openProject(el){
+      const title=el.dataset.title||el.querySelector('h4').textContent;
+      const desc=el.dataset.desc||'';
+      const tech=el.dataset.tech||'';
+      document.getElementById('modal-title').textContent=title;
+      document.getElementById('modal-desc').textContent=desc;
+      document.getElementById('modal-tech').textContent=tech;
+      document.getElementById('modal').classList.add('open');
+      document.getElementById('modal').setAttribute('aria-hidden','false');
+    }
+    function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('modal').setAttribute('aria-hidden','true');}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+    function downloadResume(e){e.preventDefault();alert('Resume download not linked yet.');}
+  </script>
+</body>
+</html>
